@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq2eivpl4x0mc"]
+[gd_scene load_steps=4 format=3 uid="uid://cvoqpphfwhe1j"]
 
-[ext_resource type="Script" path="res://player/Player.gd" id="1_36csk"]
-[ext_resource type="Texture2D" uid="uid://cej4ll4a5byef" path="res://art/icon.svg" id="2_q4cfa"]
+[ext_resource type="Script" path="res://player/Player.gd" id="1_pl8l6"]
+[ext_resource type="Texture2D" uid="uid://lphr2j42nmrh" path="res://art/player.png" id="2_d737i"]
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_36csk")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er6vg"]
+size = Vector2(64, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+[node name="Player" type="Area2D"]
+script = ExtResource("1_pl8l6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_q4cfa")
+texture = ExtResource("2_d737i")
+offset = Vector2(32, 32)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-remote_path = NodePath("../../Camera2D")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_er6vg")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

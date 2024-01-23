@@ -1,10 +1,37 @@
-extends CharacterBody2D
+extends Area2D
 
-const SPEED = 300.0
+@onready var ray = $RayCast2D
 
-func _physics_process(delta):
-	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_vector("left","right","up","down")
-	velocity = direction * SPEED
+var tile_size = 64
+var inputs = {"right": Vector2.RIGHT,
+"left": Vector2.LEFT,
+"up": Vector2.UP,
+"down": Vector2.DOWN}
 
-	move_and_slide()
+var animation_speed = 10
+var moving = false
+
+func _unhandled_input(event):
+	if moving:
+		return
+	for dir in inputs.keys():
+		if event.is_action_pressed(dir):
+			move(dir)
+	if event.is_action_pressed("reset"):
+		get_tree().change_scene_to_file("res://main.tscn")
+
+func move(dir):
+	ray.target_position = inputs[dir] * tile_size
+	ray.force_raycast_update()
+	if !ray.is_colliding():
+		transition(dir)
+	elif ray.get_collider().is_in_group("pushable"):
+		if ray.get_collider().can_move(dir):
+			transition(dir)
+
+func transition(dir):
+	var tween = create_tween()
+	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	moving = true
+	await tween.finished
+	moving = false

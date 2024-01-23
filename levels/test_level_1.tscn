@@ -1,0 +1,259 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcincfmx1flu1"]
+
+[ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="1_s8t8h"]
+[ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="2_vmu3v"]
+[ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="3_m5iby"]
+[ext_resource type="PackedScene" uid="uid://b105csdkgkkuu" path="res://objects/hole.tscn" id="4_e1hxw"]
+
+[sub_resource type="TileSet" id="TileSet_qvppb"]
+tile_size = Vector2i(64, 64)
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_qvppb")
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, -64)
+
+[node name="Player" parent="." instance=ExtResource("1_s8t8h")]
+top_level = true
+position = Vector2(192, 192)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="BoundaryWalls" type="Node2D" parent="Environment/Walls"]
+
+[node name="Wall" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-64, 256)
+
+[node name="Wall2" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(0, 256)
+
+[node name="Wall3" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(64, 256)
+
+[node name="Wall4" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(128, 256)
+
+[node name="Wall5" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(192, 256)
+
+[node name="Wall6" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(256, 256)
+
+[node name="Wall7" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(320, 256)
+
+[node name="Wall8" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(384, 256)
+
+[node name="Wall9" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(448, 256)
+
+[node name="Wall10" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, 256)
+
+[node name="Wall11" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-128, 256)
+
+[node name="Wall12" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, 256)
+
+[node name="Wall13" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, 192)
+
+[node name="Wall14" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, 128)
+
+[node name="Wall15" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, 64)
+
+[node name="Wall16" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, 0)
+
+[node name="Wall17" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -64)
+
+[node name="Wall18" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -128)
+
+[node name="Wall19" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -192)
+
+[node name="Wall20" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -256)
+
+[node name="Wall21" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -320)
+
+[node name="Wall22" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -384)
+
+[node name="Wall23" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-192, -448)
+
+[node name="Wall24" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-128, -448)
+
+[node name="Wall25" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-64, -448)
+
+[node name="Wall26" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(0, -448)
+
+[node name="Wall27" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(64, -448)
+
+[node name="Wall28" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(128, -448)
+
+[node name="Wall29" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(192, -448)
+
+[node name="Wall30" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(256, -448)
+
+[node name="Wall31" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(320, -448)
+
+[node name="Wall32" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(384, -448)
+
+[node name="Wall33" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(448, -448)
+
+[node name="Wall34" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -448)
+
+[node name="Wall35" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -384)
+
+[node name="Wall36" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -320)
+
+[node name="Wall37" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -256)
+
+[node name="Wall38" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -192)
+
+[node name="Wall39" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -128)
+
+[node name="Wall40" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, -64)
+
+[node name="Wall41" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, 0)
+
+[node name="Wall42" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, 64)
+
+[node name="Wall43" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, 128)
+
+[node name="Wall44" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(512, 192)
+
+[node name="InsideWalls" type="Node2D" parent="Environment/Walls"]
+
+[node name="Wall45" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(64, 128)
+
+[node name="Wall46" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(64, 64)
+
+[node name="Wall47" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(-64, 64)
+
+[node name="Wall48" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(64, -128)
+
+[node name="Wall49" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(128, -384)
+
+[node name="Wall50" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(192, -320)
+
+[node name="Wall51" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(192, 0)
+
+[node name="Wall52" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(256, 0)
+
+[node name="Wall53" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(256, 64)
+
+[node name="Wall54" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(192, 128)
+
+[node name="Wall55" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(384, 64)
+
+[node name="Wall56" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(384, 0)
+
+[node name="Wall57" parent="Environment/Walls/InsideWalls" instance=ExtResource("2_vmu3v")]
+position = Vector2(384, -64)
+
+[node name="Pushables" type="Node2D" parent="Environment"]
+
+[node name="PushableBlock" parent="Environment/Pushables" instance=ExtResource("3_m5iby")]
+position = Vector2(128, 64)
+
+[node name="PushableBlock2" parent="Environment/Pushables" instance=ExtResource("3_m5iby")]
+position = Vector2(0, -192)
+
+[node name="PushableBlock3" parent="Environment/Pushables" instance=ExtResource("3_m5iby")]
+position = Vector2(384, -128)
+
+[node name="PushableBlock4" parent="Environment/Pushables" instance=ExtResource("3_m5iby")]
+position = Vector2(256, -256)
+
+[node name="Holes" type="Node2D" parent="Environment"]
+
+[node name="Hole" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(0, -64)
+
+[node name="Hole2" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(0, 128)
+
+[node name="Hole3" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(-64, 128)
+
+[node name="Hole4" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(128, -320)
+
+[node name="Hole7" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(128, -256)
+
+[node name="Hole8" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(128, -192)
+
+[node name="Hole9" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(192, -192)
+
+[node name="Hole10" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(256, -192)
+
+[node name="Hole11" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(320, -192)
+
+[node name="Hole12" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(384, -192)
+
+[node name="Hole13" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(448, -192)
+
+[node name="Hole15" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(448, 0)
+
+[node name="Hole14" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(192, -64)
+
+[node name="Hole5" parent="Environment/Holes" instance=ExtResource("4_e1hxw")]
+position = Vector2(256, -384)

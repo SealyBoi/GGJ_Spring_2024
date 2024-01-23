@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b105csdkgkkuu"]
+
+[ext_resource type="Texture2D" uid="uid://cdl07wdxqw0mo" path="res://art/hole.png" id="1_plgf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
+size = Vector2(60, 60)
+
+[node name="Hole" type="StaticBody2D" groups=["hole"]]
+position = Vector2(0, -128)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_plgf6")
+offset = Vector2(32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_1r3bo")
