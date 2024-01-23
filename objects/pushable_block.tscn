@@ -8,7 +8,6 @@ size = Vector2(60, 60)
 
 [node name="PushableBlock" type="StaticBody2D" groups=["pushable"]]
 top_level = true
-position = Vector2(128, -128)
 script = ExtResource("1_pvedr")
 metadata/_edit_group_ = true
 
