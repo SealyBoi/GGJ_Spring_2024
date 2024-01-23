@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq2eivpl4x0mc"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_36csk"]
+[ext_resource type="Texture2D" uid="uid://cej4ll4a5byef" path="res://icon.svg" id="2_q4cfa"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_36csk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q4cfa")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../../Camera2D")
