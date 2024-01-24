@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://31cr31plvajq"]
 
-[ext_resource type="Script" path="res://levels/Gate.gd" id="1_dow65"]
-[ext_resource type="Texture2D" uid="uid://djrg5gk4a3ie1" path="res://art/crate.png" id="2_byyoo"]
+[ext_resource type="Script" path="res://objects/Gate.gd" id="1_dow65"]
+[ext_resource type="Texture2D" uid="uid://hb28k4hbniep" path="res://art/gate.png" id="2_6xhwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
@@ -11,7 +11,7 @@ script = ExtResource("1_dow65")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_byyoo")
+texture = ExtResource("2_6xhwb")
 offset = Vector2(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

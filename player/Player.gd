@@ -10,8 +10,12 @@ var inputs = {"right": Vector2.RIGHT,
 
 var animation_speed = 10
 var moving = false
+var pause_input = false
 
 func _unhandled_input(event):
+	if pause_input:
+		return
+	
 	if moving:
 		return
 	for dir in inputs.keys():
@@ -35,3 +39,6 @@ func transition(dir):
 	moving = true
 	await tween.finished
 	moving = false
+
+func _pause_input():
+	pause_input = true

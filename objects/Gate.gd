@@ -1,16 +1,15 @@
 extends StaticBody2D
 
-@onready var gate_closed = preload("res://art/crate.png")
-@onready var gate_open = preload("res://art/sunken_box.png")
+@onready var sprite = $Sprite2D
 var is_open = false
 
 func open_gate():
 	get_node("CollisionShape2D").disabled = true
-	get_node("Sprite2D").texture = gate_open
+	sprite.visible = false
 
 func close_gate():
 	get_node("CollisionShape2D").disabled = false
-	get_node("Sprite2D").texture = gate_closed
+	sprite.visible = true
 
 func toggle_gate():
 	if is_open:
