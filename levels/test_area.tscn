@@ -28,7 +28,6 @@ layer_0/tile_data = PackedInt32Array(-262153, 0, 0, -262152, 0, 0, -262151, 0, 0
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_u1ctu")]
-top_level = true
 
 [node name="Hole" parent="." instance=ExtResource("4_niufg")]
 position = Vector2(128, -128)
@@ -54,7 +53,7 @@ gatePaths = Array[NodePath]([NodePath("../Gate")])
 
 [node name="WeightPlate" parent="." instance=ExtResource("6_12pb4")]
 position = Vector2(-128, 0)
-gatePaths = [NodePath("../Gate2")]
+gatePaths = Array[NodePath]([NodePath("../Gate2")])
 
 [node name="Gate" parent="." instance=ExtResource("6_3h2cn")]
 position = Vector2(-320, 128)

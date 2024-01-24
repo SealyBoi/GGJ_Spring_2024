@@ -18,7 +18,7 @@ func _unhandled_input(event):
 		if event.is_action_pressed(dir):
 			move(dir)
 	if event.is_action_pressed("reset"):
-		get_tree().change_scene_to_file("res://main.tscn")
+		get_tree().reload_current_scene()
 
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size

@@ -3,8 +3,6 @@ extends StaticBody2D
 @export var gatePaths: Array[NodePath] = []
 var gates: Array
 
-var is_active = false
-
 func _ready():
 	gates = loadGates()
 
@@ -29,10 +27,5 @@ func _on_area_2d_body_exited(_body):
 	call_deferred("_toggle_gate")
 
 func _toggle_gate():
-	is_active = not is_active
-	if is_active:
-		for gate in gates:
-			gate.open_gate()
-	else:
-		for gate in gates:
-			gate.close_gate()
+	for gate in gates:
+		gate.toggle_gate()

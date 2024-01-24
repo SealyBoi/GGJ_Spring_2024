@@ -1,15 +1,16 @@
 extends StaticBody2D
 
 @export var gatePaths: Array[NodePath] = []
-@export var start_open = false
+@export var start_open: Array[bool] = []
 var gates: Array
 
-var is_active = false
-
 func _ready():
-	if start_open:
-		call_deferred("_toggle_gate")
 	gates = loadGates()
+	var i = 0
+	for gate in gates:
+		if start_open[i]:
+			call_deferred("_toggle_gate", gate)
+		i = i + 1
 
 func loadGates() -> Array:
 	var paths = []
@@ -20,16 +21,14 @@ func loadGates() -> Array:
 	return paths
 
 func _on_area_2d_area_entered(_area):
-	call_deferred("_toggle_gate")
+	call_deferred("_toggle_all_gates")
 
 func _on_area_2d_body_entered(_body):
-	call_deferred("_toggle_gate")
+	call_deferred("_toggle_all_gates")
 
-func _toggle_gate():
-	is_active = not is_active
-	if is_active:
-		for gate in gates:
-			gate.open_gate()
-	else:
-		for gate in gates:
-			gate.close_gate()
+func _toggle_gate(gate):
+	gate.toggle_gate()
+
+func _toggle_all_gates():
+	for gate in gates:
+		gate.toggle_gate()
