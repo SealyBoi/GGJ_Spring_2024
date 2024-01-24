@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
 
-[node name="PushableBlock" type="StaticBody2D" groups=["pushable"]]
+[node name="PushableBlock" type="RigidBody2D" groups=["pushable"]]
 top_level = true
+gravity_scale = 0.0
 script = ExtResource("1_pvedr")
 metadata/_edit_group_ = true
 

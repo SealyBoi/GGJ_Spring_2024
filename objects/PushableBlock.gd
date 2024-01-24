@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @onready var sunken_box = preload("res://art/sunken_box.png")
 @onready var ray = $RayCast2D
