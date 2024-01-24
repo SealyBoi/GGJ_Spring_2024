@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdeu7au1jhyeu"]
+[gd_scene load_steps=11 format=3 uid="uid://cdeu7au1jhyeu"]
 
+[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/woodFloor.png" id="1_7fjiy"]
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="1_u1ctu"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="2_fbc85"]
 [ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="3_cxt0j"]
@@ -8,14 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://31cr31plvajq" path="res://objects/gate.tscn" id="6_3h2cn"]
 [ext_resource type="PackedScene" uid="uid://87jekfqf6er8" path="res://objects/weight_plate.tscn" id="6_12pb4"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i1vbb"]
+texture = ExtResource("1_7fjiy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_qvppb"]
 tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_i1vbb")
 
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qvppb")
 format = 2
+layer_0/tile_data = PackedInt32Array(-262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -262136, 0, 0, -262137, 0, 0, -262138, 0, 0, -262139, 0, 0, -262140, 0, 0, -262141, 0, 0, -262142, 0, 0, -262143, 0, 0, -262144, 0, 0, -196609, 0, 0, -196610, 0, 0, -196611, 0, 0, -196612, 0, 0, -196613, 0, 0, -196614, 0, 0, -196615, 0, 0, -196616, 0, 0, -196617, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131080, 0, 0, -131081, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -131068, 0, 0, -131069, 0, 0, -131070, 0, 0, -131067, 0, 0, -131066, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -131064, 0, 0, -131065, 0, 0, -65529, 0, 0, -65528, 0, 0, -65530, 0, 0, -65531, 0, 0, -65532, 0, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -65536, 0, 0, -1, 0, 0, -2, 0, 0, -3, 0, 0, -4, 0, 0, -5, 0, 0, -6, 0, 0, -7, 0, 0, -8, 0, 0, -9, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0, 65536, 0, 0, 131071, 0, 0, 131070, 0, 0, 131069, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 196616, 0, 0, 196615, 0, 0, 196614, 0, 0, 196613, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 196608, 0, 0, 262143, 0, 0, 262142, 0, 0, 262141, 0, 0, 262140, 0, 0, 262139, 0, 0, 262138, 0, 0, 262137, 0, 0, 262136, 0, 0, 262135, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -40,13 +48,13 @@ position = Vector2(256, 192)
 [node name="PushableBlock3" parent="." instance=ExtResource("3_cxt0j")]
 position = Vector2(256, 64)
 
-[node name="SwitchPlate" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("5_wkow8")]
+[node name="SwitchPlate" parent="." instance=ExtResource("5_wkow8")]
 position = Vector2(-128, 128)
-gate = NodePath("../Gate")
+gatePaths = Array[NodePath]([NodePath("../Gate")])
 
-[node name="WeightPlate" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("6_12pb4")]
+[node name="WeightPlate" parent="." instance=ExtResource("6_12pb4")]
 position = Vector2(-128, 0)
-gate = NodePath("../Gate2")
+gatePaths = [NodePath("../Gate2")]
 
 [node name="Gate" parent="." instance=ExtResource("6_3h2cn")]
 position = Vector2(-320, 128)
