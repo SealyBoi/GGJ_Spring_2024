@@ -1,15 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://nisv73ya1rpt"]
+[gd_scene load_steps=10 format=3 uid="uid://nisv73ya1rpt"]
 
-[ext_resource type="Texture2D" uid="uid://irc163lchiln" path="res://art/wall.png" id="1_c2gaq"]
+[ext_resource type="Script" path="res://objects/wall.gd" id="1_7k2n7"]
+[ext_resource type="Texture2D" uid="uid://dd3am1lfskotj" path="res://art/objects/wall/tmp_Wall0001.png" id="2_4fvid"]
+[ext_resource type="Texture2D" uid="uid://itrx4hi5xudy" path="res://art/objects/wall/tmp_Wall0002.png" id="3_t8m04"]
+[ext_resource type="Texture2D" uid="uid://bwjtn8dcw5uqx" path="res://art/objects/wall/tmp_Wall0003.png" id="4_wta68"]
+[ext_resource type="Texture2D" uid="uid://cwpqa0yo8oetv" path="res://art/objects/wall/tmp_Wall0004.png" id="5_32pwb"]
+[ext_resource type="Texture2D" uid="uid://gn5ukfpe54s2" path="res://art/objects/wall/tmp_Wall0005.png" id="6_kc8t3"]
+[ext_resource type="Texture2D" uid="uid://bqhfb1pto56t8" path="res://art/objects/wall/tmp_Wall0006.png" id="7_jvcss"]
+[ext_resource type="Texture2D" uid="uid://irc163lchiln" path="res://art/objects/wall/wall.png" id="8_pkhqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
 
 [node name="Wall" type="StaticBody2D"]
+collision_layer = 3
+script = ExtResource("1_7k2n7")
+walls = Array[Texture]([ExtResource("2_4fvid"), ExtResource("3_t8m04"), ExtResource("4_wta68"), ExtResource("5_32pwb"), ExtResource("6_kc8t3"), ExtResource("7_jvcss")])
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_c2gaq")
+texture = ExtResource("8_pkhqw")
 offset = Vector2(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

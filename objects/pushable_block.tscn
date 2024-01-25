@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0i6oufviinmf"]
 
 [ext_resource type="Script" path="res://objects/PushableBlock.gd" id="1_pvedr"]
-[ext_resource type="Texture2D" uid="uid://djrg5gk4a3ie1" path="res://art/crate.png" id="2_yapr2"]
+[ext_resource type="Texture2D" uid="uid://g6ry6sixpoe1" path="res://art/objects/crate/Crate2.png" id="2_hxy0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
 
 [node name="PushableBlock" type="RigidBody2D" groups=["pushable"]]
 top_level = true
+collision_layer = 3
 gravity_scale = 0.0
 script = ExtResource("1_pvedr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yapr2")
+texture = ExtResource("2_hxy0p")
 offset = Vector2(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -22,4 +23,5 @@ shape = SubResource("RectangleShape2D_1r3bo")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(32, 32)
+collision_mask = 2
 collide_with_areas = true

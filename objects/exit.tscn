@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8mseffkqj6pe"]
 
 [ext_resource type="Script" path="res://objects/Exit.gd" id="1_5vyol"]
-[ext_resource type="Texture2D" uid="uid://canenwt6s102p" path="res://art/exit.png" id="2_b66ou"]
+[ext_resource type="Texture2D" uid="uid://canenwt6s102p" path="res://art/objects/exit/exit.png" id="2_b66ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
@@ -15,6 +15,7 @@ texture = ExtResource("2_b66ou")
 offset = Vector2(32, 32)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(32, 32)

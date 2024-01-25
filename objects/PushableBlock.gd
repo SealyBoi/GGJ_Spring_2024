@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var sunken_box = preload("res://art/sunken_box.png")
+@onready var sunken_box = preload("res://art/objects/crate/Crate2_Dark.png")
 @onready var ray = $RayCast2D
 @onready var sprite = $Sprite2D
 @onready var collision_shape = $CollisionShape2D

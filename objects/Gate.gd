@@ -12,6 +12,7 @@ func close_gate():
 	sprite.visible = true
 
 func toggle_gate():
+	print(is_open)
 	if is_open:
 		close_gate()
 	else:

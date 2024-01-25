@@ -10,7 +10,7 @@ var inputs = {"right": Vector2.RIGHT,
 
 var animation_speed = 10
 var moving = false
-var pause_input = false
+@export var pause_input = false
 
 func _unhandled_input(event):
 	if pause_input:
@@ -29,9 +29,21 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		transition(dir)
+		animate(dir, "face")
 	elif ray.get_collider().is_in_group("pushable"):
 		if ray.get_collider().can_move(dir):
 			transition(dir)
+			animate(dir, "face")
+
+func animate(dir, action):
+	if dir == "up":
+		$AnimatedSprite2D.play(action + "_back")
+	elif dir == "down":
+		$AnimatedSprite2D.play(action + "_front")
+	elif dir == "left":
+		$AnimatedSprite2D.play(action + "_left")
+	elif dir == "right":
+		$AnimatedSprite2D.play(action + "_right")
 
 func transition(dir):
 	var tween = create_tween()

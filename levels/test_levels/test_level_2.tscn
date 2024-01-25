@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://fddxhn5n0lxs"]
 
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="1_qdbum"]
-[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/woodFloor.png" id="1_yxgao"]
+[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="1_yxgao"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="2_vf6wx"]
 [ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="3_hx758"]
 [ext_resource type="PackedScene" uid="uid://b105csdkgkkuu" path="res://objects/hole.tscn" id="4_o6l76"]

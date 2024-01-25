@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b105csdkgkkuu"]
+[gd_scene load_steps=7 format=3 uid="uid://b105csdkgkkuu"]
 
-[ext_resource type="Texture2D" uid="uid://cdl07wdxqw0mo" path="res://art/hole.png" id="1_plgf6"]
+[ext_resource type="Script" path="res://objects/hole.gd" id="1_3mlle"]
+[ext_resource type="Texture2D" uid="uid://cdl07wdxqw0mo" path="res://art/objects/hole/hole.png" id="1_plgf6"]
+[ext_resource type="Texture2D" uid="uid://brly8u5oqjael" path="res://art/objects/hole/hole1.png" id="2_4i0n1"]
+[ext_resource type="Texture2D" uid="uid://cycfpwi0ptm16" path="res://art/objects/hole/hole2.png" id="3_y2v6x"]
+[ext_resource type="Texture2D" uid="uid://chsg304saximi" path="res://art/objects/hole/hole3.png" id="4_srcp2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
 
 [node name="Hole" type="StaticBody2D" groups=["hole"]]
+collision_layer = 3
+script = ExtResource("1_3mlle")
+holes = Array[Texture]([ExtResource("2_4i0n1"), ExtResource("3_y2v6x"), ExtResource("4_srcp2")])
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

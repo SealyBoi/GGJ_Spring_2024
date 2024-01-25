@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cdpx4llxjjljy"]
 
-[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/woodFloor.png" id="1_ouiur"]
+[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="1_ouiur"]
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="2_b5ouo"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="3_4bn7t"]
 [ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="4_ukjsf"]
@@ -206,5 +206,6 @@ position = Vector2(320, 192)
 levelName = "test_levels/test_level_4"
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="SceneTransitionRect" parent="HUD" instance=ExtResource("11_q1mjx")]
