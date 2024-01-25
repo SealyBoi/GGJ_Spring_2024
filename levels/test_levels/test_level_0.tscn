@@ -30,6 +30,7 @@ zoom = Vector2(0.85, 0.85)
 [node name="Player" parent="." instance=ExtResource("2_2ucjf")]
 
 [node name="Environment" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="Walls" type="Node2D" parent="Environment"]
 

@@ -17,7 +17,7 @@ var moving = false
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
-	if !ray.is_colliding():
+	if not ray.is_colliding():
 		transition(dir)
 		return true
 	var collider = ray.get_collider()
@@ -25,6 +25,9 @@ func move(dir):
 		if collider.can_move(dir):
 			transition(dir)
 			return true
+	elif collider.is_in_group("plate"):
+		transition(dir)
+		return true
 	elif collider.is_in_group("hole"):
 		# delete hole and replace hole with passable tile
 		transition(dir)

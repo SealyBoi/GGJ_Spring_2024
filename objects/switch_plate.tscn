@@ -14,7 +14,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("2_ql873")
 offset = Vector2(32, 32)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["plate"]]
 monitorable = false
 metadata/_edit_group_ = true
 
