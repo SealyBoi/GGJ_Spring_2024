@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var ghost: AnimatedSprite2D = $Ghost
 @onready var audio: AudioStreamPlayer2D = $GhostAudio
+@onready var lights: Node2D = $Lighting/Lights
 @onready var hole: PackedScene = preload("res://objects/hole.tscn")
 @onready var ghost_fall: AudioStream = preload("res://sound/ghost/temp_ghost_fall.mp3")
 @onready var ghost_woo: AudioStream = preload("res://sound/ghost/temp_ghost_woo.mp3")
@@ -16,7 +17,7 @@ func _on_light_timer_timeout():
 	if not light_on:
 		light_on = true
 		$LightTimer.start()
-		$Lights.visible = true
+		lights.visible = true
 		audio.stop()
 		return
 	
@@ -37,6 +38,7 @@ func _on_light_timer_timeout():
 		audio.stream = ghost_fall
 		audio.play()
 		$AudioTimer.start()
+		$LightTimer.wait_time = 0.75
 		var new_hole = hole.instantiate()
 		new_hole.position = ghost.position
 		add_child(new_hole)
@@ -50,7 +52,7 @@ func play_anim(anim):
 	ghost.play(anim)
 	light_on = false
 	ghost.position = ghost.position + Vector2(-128, 0)
-	$Lights.visible = false
+	lights.visible = false
 
 func _on_audio_timer_timeout():
 	audio.volume_db = audio.volume_db - 5

@@ -197,8 +197,8 @@ color = Color(0, 0, 0, 1)
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights"]
-position = Vector2(7.62939e-06, 19.2)
-scale = Vector2(2.95385, 1.6)
+position = Vector2(2.67029e-05, 39.68)
+scale = Vector2(3.44615, 2.24)
 energy = 1.5
 texture = SubResource("GradientTexture2D_fadbh")
 offset = Vector2(0, -32)

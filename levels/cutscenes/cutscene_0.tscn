@@ -221,18 +221,6 @@ flip_h = true
 position = Vector2(192, -64)
 max_distance = 500.0
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
-
-[node name="Lights" type="Node2D" parent="."]
-
-[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
-position = Vector2(7.62939e-06, 19.2)
-scale = Vector2(2.95385, 1.6)
-energy = 1.5
-texture = SubResource("GradientTexture2D_fadbh")
-offset = Vector2(0, -32)
-
 [node name="LightTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
@@ -240,6 +228,20 @@ one_shot = true
 [node name="AudioTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0, 0, 0, 1)
+
+[node name="Lights" type="Node2D" parent="Lighting"]
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lighting/Lights"]
+position = Vector2(-1.14441e-05, 39.68)
+scale = Vector2(3.44615, 2.24)
+energy = 1.5
+texture = SubResource("GradientTexture2D_fadbh")
+offset = Vector2(0, -32)
 
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="timeout" from="AudioTimer" to="." method="_on_audio_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://42fhiukicrrt"]
+[gd_scene load_steps=18 format=3 uid="uid://42fhiukicrrt"]
 
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="1_4koj3"]
 [ext_resource type="Texture2D" uid="uid://ch1rf1ke40l01" path="res://art/tiles/woodFloor2.png" id="2_5304n"]
@@ -32,6 +32,18 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_wvv3a")
 sources/1 = SubResource("TileSetAtlasSource_rjf7a")
 sources/2 = SubResource("TileSetAtlasSource_5itqb")
+
+[sub_resource type="Gradient" id="Gradient_dcqp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fadbh"]
+gradient = SubResource("Gradient_dcqp7")
+width = 260
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+metadata/_snap_enabled = true
 
 [node name="Main" type="Node2D"]
 
@@ -181,3 +193,17 @@ levelName = "test_levels/test_level_0"
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="SceneTransitionRect" parent="HUD" instance=ExtResource("10_yfxj0")]
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0, 0, 0, 1)
+
+[node name="Lights" type="Node2D" parent="Lighting"]
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lighting/Lights"]
+position = Vector2(0, 81.92)
+scale = Vector2(2.46154, 2.56)
+energy = 1.5
+texture = SubResource("GradientTexture2D_fadbh")
+offset = Vector2(0, -32)

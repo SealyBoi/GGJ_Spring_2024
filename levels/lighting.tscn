@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://y1knxudnc13v"]
+
+[sub_resource type="Gradient" id="Gradient_dcqp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fadbh"]
+gradient = SubResource("Gradient_dcqp7")
+width = 260
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+metadata/_snap_enabled = true
+
+[node name="Lighting" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
+position = Vector2(7.62939e-06, 19.2)
+scale = Vector2(2.95385, 1.6)
+energy = 1.5
+texture = SubResource("GradientTexture2D_fadbh")
+offset = Vector2(0, -32)
