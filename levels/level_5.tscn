@@ -225,9 +225,6 @@ position = Vector2(0, -128)
 [node name="Wall59" parent="Environment/Walls/InsideWalls" instance=ExtResource("5_scetr")]
 position = Vector2(64, -128)
 
-[node name="Wall60" parent="Environment/Walls/InsideWalls" instance=ExtResource("5_scetr")]
-position = Vector2(128, -128)
-
 [node name="Wall61" parent="Environment/Walls/InsideWalls" instance=ExtResource("5_scetr")]
 position = Vector2(-64, -256)
 
@@ -346,9 +343,6 @@ position = Vector2(192, 192)
 
 [node name="Holes" type="Node2D" parent="Environment"]
 
-[node name="Hole" parent="Environment/Holes" instance=ExtResource("7_r0fva")]
-position = Vector2(-384, 320)
-
 [node name="Hole2" parent="Environment/Holes" instance=ExtResource("7_r0fva")]
 position = Vector2(-256, 256)
 
@@ -368,7 +362,7 @@ position = Vector2(-320, -320)
 [node name="13_" parent="Environment/Plates/13" instance=ExtResource("8_wubmo")]
 position = Vector2(128, -256)
 gatePaths = Array[NodePath]([NodePath("../../../Gates/13a"), NodePath("../../../Gates/13b"), NodePath("../../../Gates/3a")])
-start_open = Array[bool]([false, false, false])
+start_open = Array[bool]([true, true, false])
 
 [node name="13_3" parent="Environment/Plates/13" instance=ExtResource("8_wubmo")]
 position = Vector2(192, -320)
@@ -410,6 +404,16 @@ position = Vector2(192, -128)
 gatePaths = Array[NodePath]([NodePath("../../../Gates/13a"), NodePath("../../../Gates/13b"), NodePath("../../../Gates/3a")])
 start_open = Array[bool]([false, false, false])
 
+[node name="13_19" parent="Environment/Plates/13" instance=ExtResource("8_wubmo")]
+position = Vector2(128, -128)
+gatePaths = Array[NodePath]([NodePath("../../../Gates/13a"), NodePath("../../../Gates/13b"), NodePath("../../../Gates/3a")])
+start_open = Array[bool]([false, false, false])
+
+[node name="13_20" parent="Environment/Plates/13" instance=ExtResource("8_wubmo")]
+position = Vector2(192, -64)
+gatePaths = Array[NodePath]([NodePath("../../../Gates/13a"), NodePath("../../../Gates/13b"), NodePath("../../../Gates/3a")])
+start_open = Array[bool]([false, false, false])
+
 [node name="13_17" parent="Environment/Plates/13" instance=ExtResource("8_wubmo")]
 position = Vector2(256, -64)
 gatePaths = Array[NodePath]([NodePath("../../../Gates/13a"), NodePath("../../../Gates/13b"), NodePath("../../../Gates/3a")])
@@ -441,7 +445,6 @@ gatePaths = Array[NodePath]([NodePath("../../Gates/7a"), NodePath("../../Gates/7
 start_open = Array[bool]([false, false])
 
 [node name="3" parent="Environment/Plates" instance=ExtResource("8_wubmo")]
-position = Vector2(0, -64)
 gatePaths = Array[NodePath]([NodePath("../../Gates/3a")])
 start_open = Array[bool]([false])
 
@@ -466,7 +469,7 @@ position = Vector2(-384, 0)
 gatePaths = Array[NodePath]([NodePath("../../Gates/10a")])
 
 [node name="8" parent="Environment/Plates" instance=ExtResource("9_sgupu")]
-position = Vector2(-320, 320)
+position = Vector2(-384, 320)
 gatePaths = Array[NodePath]([NodePath("../../Gates/8a")])
 
 [node name="9" parent="Environment/Plates" instance=ExtResource("9_sgupu")]
@@ -474,15 +477,15 @@ position = Vector2(-192, 192)
 gatePaths = Array[NodePath]([NodePath("../../Gates/9a")])
 
 [node name="2" parent="Environment/Plates" instance=ExtResource("9_sgupu")]
-position = Vector2(-128, -64)
+position = Vector2(-64, -64)
 gatePaths = Array[NodePath]([NodePath("../../Gates/2a")])
 
 [node name="1" parent="Environment/Plates" instance=ExtResource("9_sgupu")]
-position = Vector2(-128, 64)
+position = Vector2(-128, 0)
 gatePaths = Array[NodePath]([NodePath("../../Gates/1a")])
 
 [node name="4" parent="Environment/Plates" instance=ExtResource("9_sgupu")]
-position = Vector2(0, 64)
+position = Vector2(-64, 64)
 gatePaths = Array[NodePath]([NodePath("../../Gates/4a")])
 
 [node name="Gates" type="Node2D" parent="Environment"]

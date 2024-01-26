@@ -234,11 +234,9 @@ volume_db = 5.0
 max_distance = 500.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Lights" type="Node2D" parent="."]
-visible = false
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights"]
 position = Vector2(2.67029e-05, 39.68)
