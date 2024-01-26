@@ -18,7 +18,6 @@ func _on_light_timer_timeout():
 		light_on = true
 		$LightTimer.start()
 		lights.visible = true
-		audio.stop()
 		return
 	
 	if curr_animation == 1:
