@@ -1,6 +1,6 @@
 extends Control
 
-@onready var first_level: PackedScene = preload("res://levels/test_levels/test_level_0.tscn")
+@onready var first_level: PackedScene = preload("res://levels/cutscenes/cutscene_0.tscn")
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready():

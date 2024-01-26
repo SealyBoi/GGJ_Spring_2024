@@ -10,6 +10,7 @@ var inputs = {"right": Vector2.RIGHT,
 
 var animation_speed = 10
 var moving = false
+var move_left_leg = true
 @export var pause_input = false
 
 func _unhandled_input(event):
@@ -29,28 +30,37 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		transition(dir)
-		animate(dir, "face")
+		animate(dir, "walk")
 	elif ray.get_collider().is_in_group("pushable"):
 		if ray.get_collider().can_move(dir):
 			transition(dir)
-			animate(dir, "face")
+			animate(dir, "walk")
 
 func animate(dir, action):
+	var leg = ""
+	if moving:
+		move_left_leg = not move_left_leg
+		if move_left_leg:
+			leg = "_l"
+		else:
+			leg = "_r"
+	
 	if dir == "up":
-		$AnimatedSprite2D.play(action + "_back")
+		$AnimatedSprite2D.play(action + "_back" + leg)
 	elif dir == "down":
-		$AnimatedSprite2D.play(action + "_front")
+		$AnimatedSprite2D.play(action + "_front" + leg)
 	elif dir == "left":
-		$AnimatedSprite2D.play(action + "_left")
+		$AnimatedSprite2D.play(action + "_left" + leg)
 	elif dir == "right":
-		$AnimatedSprite2D.play(action + "_right")
+		$AnimatedSprite2D.play(action + "_right" + leg)
 
 func transition(dir):
 	var tween = create_tween()
-	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 2.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	await tween.finished
 	moving = false
+	animate(dir, "face")
 
 func _pause_input():
 	pause_input = true
