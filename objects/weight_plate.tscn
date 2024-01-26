@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://87jekfqf6er8"]
 
 [ext_resource type="Script" path="res://objects/WeightPlate.gd" id="1_c67wj"]
-[ext_resource type="Texture2D" uid="uid://ce73dsmmayraj" path="res://art/objects/plates/weightPlate.png" id="2_22om2"]
+[ext_resource type="Texture2D" uid="uid://bf68331tcihx2" path="res://art/objects/plates/Plate2_Rusted.png" id="2_c7oyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
@@ -12,7 +12,7 @@ script = ExtResource("1_c67wj")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_22om2")
+texture = ExtResource("2_c7oyf")
 offset = Vector2(32, 32)
 
 [node name="Area2D" type="Area2D" parent="." groups=["plate"]]

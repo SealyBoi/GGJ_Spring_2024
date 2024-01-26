@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1k44l3afx6f5"]
+[gd_scene load_steps=21 format=3 uid="uid://c1k44l3afx6f5"]
 
 [ext_resource type="Script" path="res://levels/cutscenes/cutscene_1.gd" id="1_knrei"]
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="2_qe0mm"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="4_wb52w"]
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="5_6rdgg"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="6_m424g"]
-[ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://entrance.tscn" id="7_rgr2w"]
+[ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://objects/entrance.tscn" id="7_rgr2w"]
 [ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="8_67iai"]
 [ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="9_3umex"]
 [ext_resource type="Texture2D" uid="uid://g6ry6sixpoe1" path="res://art/objects/crate/Crate2.png" id="10_5hog5"]
@@ -33,7 +33,44 @@ sources/1 = SubResource("TileSetAtlasSource_rjf7a")
 sources/2 = SubResource("TileSetAtlasSource_5itqb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjkgd"]
-size = Vector2(128, 192)
+size = Vector2(64, 192)
+
+[sub_resource type="Animation" id="Animation_hud6i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-64, -128)]
+}
+
+[sub_resource type="Animation" id="Animation_b4t7c"]
+resource_name = "shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-64, -128), Vector2(-66, -128), Vector2(-62, -128), Vector2(-66, -128), Vector2(-64, -128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ck03u"]
+_data = {
+"RESET": SubResource("Animation_hud6i"),
+"shake": SubResource("Animation_b4t7c")
+}
 
 [sub_resource type="Gradient" id="Gradient_dcqp7"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -171,7 +208,6 @@ position = Vector2(320, -64)
 levelName = "test_levels/test_level_0"
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="SceneTransitionRect" parent="HUD" instance=ExtResource("9_3umex")]
 
@@ -184,17 +220,25 @@ flip_h = true
 [node name="Area2D" type="Area2D" parent="Closet"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Closet/Area2D"]
-position = Vector2(64, 96)
+position = Vector2(32, 96)
 shape = SubResource("RectangleShape2D_gjkgd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Closet"]
+libraries = {
+"": SubResource("AnimationLibrary_ck03u")
+}
 
 [node name="ClosetAudio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(192, -64)
+volume_db = 5.0
 max_distance = 500.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Lights" type="Node2D" parent="."]
+visible = false
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights"]
 position = Vector2(2.67029e-05, 39.68)

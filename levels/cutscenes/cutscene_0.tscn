@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://biptk6b2dxe82"]
+[gd_scene load_steps=22 format=3 uid="uid://biptk6b2dxe82"]
 
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="1_im4b4"]
 [ext_resource type="Script" path="res://levels/cutscenes/cutscene_0.gd" id="1_p88b0"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="3_1xd78"]
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="4_x7arf"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="5_6upav"]
-[ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://entrance.tscn" id="7_m0yd5"]
+[ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://objects/entrance.tscn" id="7_m0yd5"]
 [ext_resource type="Texture2D" uid="uid://djm2j8mey2xgp" path="res://art/npc/ghost/ghost_Fall.png" id="8_tbnab"]
 [ext_resource type="Texture2D" uid="uid://co8gx6mrq7dqg" path="res://art/npc/ghost/ghost_Upright.png" id="9_mil37"]
 [ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="10_236ba"]
 [ext_resource type="Texture2D" uid="uid://bbcj2hsjl5w4y" path="res://art/npc/ghost/ghost_tiltLeft.png" id="10_l0ann"]
 [ext_resource type="Texture2D" uid="uid://lqsrol20a2ni" path="res://art/npc/ghost/ghost_tiltRight.png" id="11_1p7rh"]
 [ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="11_xr8gq"]
+[ext_resource type="AudioStream" uid="uid://bgjarfnujopid" path="res://sound/ghost/floor_break.mp3" id="14_nb78y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvv3a"]
 texture = ExtResource("1_im4b4")
@@ -204,7 +205,7 @@ position = Vector2(-384, 0)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("10_236ba")]
 position = Vector2(320, -64)
-levelName = "test_levels/test_level_0"
+levelName = "test_levels/test_level_1"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -221,13 +222,21 @@ flip_h = true
 position = Vector2(192, -64)
 volume_db = 10.0
 max_distance = 500.0
+bus = &"SFX"
+
+[node name="FloorAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(192, -64)
+stream = ExtResource("14_nb78y")
+volume_db = 5.0
+max_distance = 500.0
+bus = &"SFX"
 
 [node name="LightTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
 
 [node name="AudioTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 one_shot = true
 
 [node name="Lighting" type="Node2D" parent="."]

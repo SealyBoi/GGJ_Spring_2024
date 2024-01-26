@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://didexhdxf1561"]
+
+[ext_resource type="Script" path="res://screens/vol_slider.gd" id="1_wt4vq"]
+
+[node name="vol_slider" type="HSlider"]
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_wt4vq")

@@ -1,9 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnvlar5eex7x1"]
+[gd_scene load_steps=20 format=3 uid="uid://cnvlar5eex7x1"]
 
 [ext_resource type="Script" path="res://screens/main_menu.gd" id="1_qk8qt"]
+[ext_resource type="Texture2D" uid="uid://ch1rf1ke40l01" path="res://art/tiles/woodFloor2.png" id="2_h2gno"]
 [ext_resource type="AudioStream" uid="uid://dajis4ocm8c64" path="res://sound/music/Menu_Music.mp3" id="2_s2cut"]
+[ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="3_ytufa"]
+[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="4_guegp"]
+[ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="5_uhl6e"]
+[ext_resource type="PackedScene" uid="uid://b105csdkgkkuu" path="res://objects/hole.tscn" id="6_r6m2d"]
+[ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="7_d0f67"]
+[ext_resource type="PackedScene" uid="uid://87jekfqf6er8" path="res://objects/weight_plate.tscn" id="8_w6uk8"]
+[ext_resource type="PackedScene" uid="uid://31cr31plvajq" path="res://objects/gate.tscn" id="9_o2p3i"]
+[ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="10_0w2uu"]
+[ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="12_jeii1"]
+[ext_resource type="PackedScene" uid="uid://didexhdxf1561" path="res://screens/vol_slider.tscn" id="12_quhn0"]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdxu3"]
+texture = ExtResource("2_h2gno")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vskar"]
+texture = ExtResource("3_ytufa")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6h2e"]
+texture = ExtResource("4_guegp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8mtud"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_qdxu3")
+sources/1 = SubResource("TileSetAtlasSource_vskar")
+sources/2 = SubResource("TileSetAtlasSource_d6h2e")
+
+[sub_resource type="Gradient" id="Gradient_dcqp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fadbh"]
+gradient = SubResource("Gradient_dcqp7")
+width = 260
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+metadata/_snap_enabled = true
+
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,9 +56,288 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qk8qt")
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8mtud")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 2, 0, 2, 0, 0, 3, 2, 0, 4, 1, 0, 5, 1, 0, 65541, 2, 0, 65540, 2, 0, 65539, 0, 0, 65538, 0, 0, 65537, 1, 0, 65536, 1, 0, 131072, 0, 0, 131073, 1, 0, 131074, 1, 0, 131075, 0, 0, 131076, 2, 0, 131077, 2, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 65544, 2, 0, 65543, 2, 0, 7, 1, 0, 6, 1, 0, 8, 1, 0, 9, 1, 0, 10, 0, 0, 11, 0, 0, 65545, 2, 0, 65542, 2, 0, 131081, 1, 0, 131082, 2, 0, 131083, 2, 0, 131084, 2, 0, 65548, 2, 0, 65547, 2, 0, 65546, 2, 0, 12, 0, 0, 13, 0, 0, 14, 2, 0, 15, 0, 0, 16, 1, 0, 17, 1, 0, 65553, 2, 0, 65552, 1, 0, 65551, 0, 0, 65550, 1, 0, 65549, 2, 0, 131085, 2, 0, 131086, 2, 0, 131087, 0, 0, 131088, 2, 0, 131089, 2, 0, 196625, 2, 0, 196624, 2, 0, 196623, 0, 0, 196622, 2, 0, 196621, 2, 0, 196620, 0, 0, 196619, 0, 0, 196618, 0, 0, 196617, 2, 0, 196616, 2, 0, 196615, 1, 0, 196614, 0, 0, 196613, 0, 0, 196612, 2, 0, 196611, 0, 0, 196610, 2, 0, 196609, 0, 0, 196608, 2, 0, 262144, 2, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 2, 0, 262161, 2, 0, 327697, 2, 0, 327696, 2, 0, 327695, 2, 0, 327694, 2, 0, 327693, 1, 0, 327692, 1, 0, 327691, 1, 0, 327690, 2, 0, 327689, 2, 0, 327688, 0, 0, 327687, 2, 0, 327686, 2, 0, 327685, 2, 0, 327684, 2, 0, 327683, 0, 0, 327682, 0, 0, 327681, 2, 0, 327680, 2, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 2, 0, 393221, 2, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 2, 0, 393226, 2, 0, 393227, 0, 0, 393228, 0, 0, 393229, 1, 0, 393230, 2, 0, 393231, 2, 0, 393232, 2, 0, 393233, 2, 0, 458769, 2, 0, 458768, 2, 0, 524304, 1, 0, 524303, 1, 0, 524302, 1, 0, 524301, 0, 0, 524300, 2, 0, 524299, 2, 0, 524298, 2, 0, 524297, 2, 0, 524296, 2, 0, 524295, 2, 0, 524294, 2, 0, 524293, 2, 0, 524292, 2, 0, 524291, 2, 0, 458755, 1, 0, 458754, 0, 0, 458753, 1, 0, 524288, 0, 0, 524289, 2, 0, 524290, 0, 0, 458756, 1, 0, 458757, 2, 0, 458752, 0, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458764, 0, 0, 458765, 0, 0, 458766, 1, 0, 458767, 1, 0, 524305, 1, 0, 589841, 1, 0, 589840, 2, 0, 589839, 2, 0, 589838, 0, 0, 589837, 2, 0, 589836, 2, 0, 589835, 2, 0, 589834, 2, 0, 589833, 2, 0, 589832, 2, 0, 589831, 1, 0, 589830, 1, 0, 589829, 2, 0, 589828, 2, 0, 589827, 1, 0, 589826, 1, 0, 589825, 0, 0, 589824, 0, 0, 720894, 2, 0, 786430, 2, 0, 786431, 2, 0, 720895, 2, 0, 655360, 1, 0, 655361, 1, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 655364, 2, 0, 655363, 2, 0, 655362, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 655368, 1, 0, 655369, 1, 0, 655367, 2, 0, 655366, 2, 0, 655365, 2, 0, 720905, 2, 0, 720906, 2, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 655375, 0, 0, 655374, 2, 0, 655373, 2, 0, 655376, 2, 0, 655377, 2, 0, 720913, 2, 0, 720912, 2, 0, 720914, 2, 0, 655378, 2, 0, 589842, 1, 0, 589843, 2, 0, 655379, 2, 0, 720915, 2, 0, 524307, 2, 0, 458771, 2, 0, 393235, 2, 0, 393234, 2, 0, 458770, 2, 0, 524306, 2, 0, 327698, 2, 0, 262162, 2, 0, 327699, 2, 0, 262163, 2, 0, 196626, 2, 0, 131090, 2, 0, 65554, 2, 0, 18, 2, 0, -65518, 2, 0, -65517, 2, 0, 19, 2, 0, 65555, 2, 0, 131091, 2, 0, 196627, 2, 0, -131053, 2, 0, -131054, 2, 0, -131055, 2, 0, -131056, 2, 0, -131057, 2, 0, -131058, 2, 0, -131059, 2, 0, -131060, 2, 0, -131061, 2, 0, -131062, 2, 0, -131063, 2, 0, -131064, 2, 0, -131065, 2, 0, -65529, 2, 0, -65530, 2, 0, -65531, 2, 0, -65532, 2, 0, -65533, 2, 0, -65534, 2, 0, -65535, 2, 0, -131071, 0, 0, -131072, 2, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 2, 0, -131066, 2, 0, -65521, 0, 0, -65520, 2, 0, -65519, 2, 0, -65522, 2, 0, -65523, 2, 0, -65524, 2, 0, -65525, 2, 0, -65526, 0, 0, -65527, 0, 0, -65528, 2, 0, -65536, 2, 0, -1, 1, 0, -65537, 1, 0, -65538, 2, 0, -2, 2, 0, 65534, 2, 0, 131070, 2, 0, 131071, 2, 0, 196607, 2, 0, 65535, 1, 0, 196606, 2, 0, 262142, 2, 0, 327678, 2, 0, 393214, 0, 0, 458750, 0, 0, 524286, 2, 0, 589822, 2, 0, 655358, 2, 0, 655359, 2, 0, 589823, 2, 0, 524287, 2, 0, 458751, 2, 0, 393215, 2, 0, 327679, 2, 0, 262143, 2, 0)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="Wall" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+
+[node name="Wall2" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 64)
+
+[node name="Wall3" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 128)
+
+[node name="Wall4" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 192)
+
+[node name="Wall5" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 256)
+
+[node name="Wall6" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 320)
+
+[node name="Wall7" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 384)
+
+[node name="Wall8" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 448)
+
+[node name="Wall9" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 512)
+
+[node name="Wall10" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(0, 576)
+
+[node name="Wall11" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(64, 576)
+
+[node name="Wall12" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(128, 576)
+
+[node name="Wall13" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(192, 576)
+
+[node name="Wall14" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(256, 576)
+
+[node name="Wall15" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 576)
+
+[node name="Wall16" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(384, 576)
+
+[node name="Wall17" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(448, 576)
+
+[node name="Wall18" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(512, 576)
+
+[node name="Wall19" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(576, 576)
+
+[node name="Wall20" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(640, 576)
+
+[node name="Wall21" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(704, 576)
+
+[node name="Wall22" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 576)
+
+[node name="Wall23" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(832, 576)
+
+[node name="Wall24" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(896, 576)
+
+[node name="Wall26" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1024, 576)
+
+[node name="Wall27" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 576)
+
+[node name="Wall28" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 512)
+
+[node name="Wall29" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 448)
+
+[node name="Wall30" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 384)
+
+[node name="Wall31" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 320)
+
+[node name="Wall32" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 256)
+
+[node name="Wall33" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 192)
+
+[node name="Wall34" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 128)
+
+[node name="Wall35" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 64)
+
+[node name="Wall36" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1088, 0)
+
+[node name="Wall37" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1024, 0)
+
+[node name="Wall38" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(960, 0)
+
+[node name="Wall39" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(896, 0)
+
+[node name="Wall40" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(832, 0)
+
+[node name="Wall41" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 0)
+
+[node name="Wall42" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(704, 0)
+
+[node name="Wall43" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(640, 0)
+
+[node name="Wall44" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(576, 0)
+
+[node name="Wall45" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(512, 0)
+
+[node name="Wall46" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(448, 0)
+
+[node name="Wall47" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(384, 0)
+
+[node name="Wall48" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 0)
+
+[node name="Wall49" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(256, 0)
+
+[node name="Wall50" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(192, 0)
+
+[node name="Wall51" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(128, 0)
+
+[node name="Wall52" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(64, 0)
+
+[node name="Wall53" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(256, 64)
+
+[node name="Wall54" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(256, 128)
+
+[node name="Wall55" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 192)
+
+[node name="Wall67" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(256, 192)
+
+[node name="Wall56" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 256)
+
+[node name="Wall57" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(448, 256)
+
+[node name="Wall61" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(448, 192)
+
+[node name="Wall62" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(448, 128)
+
+[node name="Wall63" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(512, 128)
+
+[node name="Wall64" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(640, 128)
+
+[node name="Wall65" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(704, 128)
+
+[node name="Wall68" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 128)
+
+[node name="Wall69" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 64)
+
+[node name="Wall70" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 512)
+
+[node name="Wall71" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 448)
+
+[node name="Wall72" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(768, 384)
+
+[node name="Wall73" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(896, 384)
+
+[node name="Wall75" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(832, 384)
+
+[node name="Wall74" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(1024, 384)
+
+[node name="Wall66" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(576, 128)
+
+[node name="Wall58" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 384)
+
+[node name="Wall59" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 448)
+
+[node name="Wall60" parent="Environment/Walls" instance=ExtResource("5_uhl6e")]
+position = Vector2(320, 512)
+
+[node name="Holes" type="Node2D" parent="Environment"]
+
+[node name="Hole" parent="Environment/Holes" instance=ExtResource("6_r6m2d")]
+position = Vector2(768, 192)
+
+[node name="Hole2" parent="Environment/Holes" instance=ExtResource("6_r6m2d")]
+position = Vector2(768, 256)
+
+[node name="Hole3" parent="Environment/Holes" instance=ExtResource("6_r6m2d")]
+position = Vector2(768, 320)
+
+[node name="Hole5" parent="Environment/Holes" instance=ExtResource("6_r6m2d")]
+position = Vector2(384, 256)
+
+[node name="Hole4" parent="Environment/Holes" instance=ExtResource("6_r6m2d")]
+position = Vector2(320, 320)
+
+[node name="Pushables" type="Node2D" parent="Environment"]
+
+[node name="PushableBlock" parent="Environment/Pushables" instance=ExtResource("7_d0f67")]
+position = Vector2(192, 192)
+
+[node name="PushableBlock2" parent="Environment/Pushables" instance=ExtResource("7_d0f67")]
+position = Vector2(640, 448)
+
+[node name="PushableBlock3" parent="Environment/Pushables" instance=ExtResource("7_d0f67")]
+position = Vector2(896, 128)
+
+[node name="PushableBlock4" parent="Environment/Pushables" instance=ExtResource("7_d0f67")]
+position = Vector2(960, 256)
+
+[node name="Plates" type="Node2D" parent="Environment"]
+
+[node name="WeightPlate" parent="Environment/Plates" instance=ExtResource("8_w6uk8")]
+position = Vector2(704, 64)
+gatePaths = Array[NodePath]([NodePath("../../Gates/Gate")])
+
+[node name="Gates" type="Node2D" parent="Environment"]
+
+[node name="Gate" parent="Environment/Gates" instance=ExtResource("9_o2p3i")]
+position = Vector2(960, 384)
+
+[node name="Exit" type="Node2D" parent="Environment"]
+
+[node name="Exit" parent="Environment/Exit" instance=ExtResource("10_0w2uu")]
+position = Vector2(960, 576)
+levelName = "test_levels/test_level_0"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_s2cut")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="Main" type="Control" parent="."]
 anchors_preset = 0
@@ -48,6 +371,11 @@ theme_override_constants/separation = 16
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Play"
+
+[node name="Settings" type="Button" parent="Main/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
 
 [node name="Credits" type="Button" parent="Main/VBoxContainer"]
 layout_mode = 2
@@ -93,6 +421,98 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Master Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="vol_slider" parent="Settings/VBoxContainer" instance=ExtResource("12_quhn0")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Music Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="vol_slider2" parent="Settings/VBoxContainer" instance=ExtResource("12_quhn0")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "SFX Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="vol_slider3" parent="Settings/VBoxContainer" instance=ExtResource("12_quhn0")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Back" type="Button" parent="Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 320)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="SceneTransitionRect" parent="HUD" instance=ExtResource("12_jeii1")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Lighting" type="Node2D" parent="."]
+position = Vector2(458, 110)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0, 0, 0, 1)
+
+[node name="Lights" type="Node2D" parent="Lighting"]
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lighting/Lights"]
+position = Vector2(118, 353.36)
+scale = Vector2(5.41538, 4.48)
+energy = 1.5
+texture = SubResource("GradientTexture2D_fadbh")
+offset = Vector2(0, -32)
+
 [connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Credits/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Back" to="." method="_on_back_pressed"]

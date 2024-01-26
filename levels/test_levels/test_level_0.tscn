@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://djq0jx0tubu0"]
+[gd_scene load_steps=12 format=3 uid="uid://djq0jx0tubu0"]
 
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="1_sqor0"]
+[ext_resource type="PackedScene" uid="uid://fn41ufxh3jhm" path="res://levels/music.tscn" id="1_vi2ql"]
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="2_2ucjf"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="3_r1lrk"]
 [ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="4_0d421"]
@@ -29,6 +30,9 @@ fill_to = Vector2(0.9, 0.1)
 metadata/_snap_enabled = true
 
 [node name="Main" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_vi2ql")]
+volume_db = -10.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qvppb")
@@ -161,7 +165,7 @@ position = Vector2(64, -256)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("9_w7icj")]
 position = Vector2(0, -384)
-levelName = "test_levels/test_level_1"
+levelName = "cutscenes/cutscene_0"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
