@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="6_bx2jg"]
 [ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://objects/entrance.tscn" id="7_otc6f"]
 [ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="8_ivxll"]
-[ext_resource type="Texture2D" uid="uid://c4kijwykk1sgf" path="res://art/npc/Clown (2).png" id="8_nv8ci"]
+[ext_resource type="Texture2D" uid="uid://c4kijwykk1sgf" path="res://art/npc/clown/Clown (2).png" id="8_nv8ci"]
 [ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="9_q4kpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvv3a"]
@@ -166,6 +166,7 @@ position = Vector2(-384, 0)
 [node name="InsideWalls" type="Node2D" parent="Environment/Walls"]
 
 [node name="Entrance" parent="Environment/Walls" instance=ExtResource("7_otc6f")]
+position = Vector2(-384, -64)
 
 [node name="Pushables" type="Node2D" parent="Environment"]
 
@@ -179,7 +180,7 @@ position = Vector2(-384, 0)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("8_ivxll")]
 position = Vector2(320, -64)
-levelName = "test_levels/test_level_0"
+levelName = "cutscenes/cutscene_3"
 
 [node name="Clown" type="AnimatedSprite2D" parent="."]
 position = Vector2(-64, -128)
@@ -196,16 +197,13 @@ position = Vector2(96, -32)
 shape = SubResource("RectangleShape2D_a4jv8")
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="SceneTransitionRect" parent="HUD" instance=ExtResource("9_q4kpp")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Lights" type="Node2D" parent="."]
-visible = false
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights"]
 position = Vector2(2.67029e-05, 39.68)

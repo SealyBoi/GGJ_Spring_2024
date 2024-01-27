@@ -1,17 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cii2aipbuxwjh"]
 
-[ext_resource type="Texture2D" uid="uid://canenwt6s102p" path="res://art/objects/exit/exit.png" id="8_4a32g"]
+[ext_resource type="Texture2D" uid="uid://b50n0bniorblr" path="res://art/objects/exit/exitDoor.png" id="1_ulrq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
 
 [node name="Entrance" type="StaticBody2D"]
-position = Vector2(-384, -64)
 collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("8_4a32g")
+texture = ExtResource("1_ulrq5")
 offset = Vector2(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

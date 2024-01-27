@@ -8,7 +8,7 @@ var inputs = {"right": Vector2.RIGHT,
 "up": Vector2.UP,
 "down": Vector2.DOWN}
 
-var animation_speed = 10
+var animation_speed = 5
 var moving = false
 var move_left_leg = true
 @export var pause_input = false
@@ -56,7 +56,7 @@ func animate(dir, action):
 
 func transition(dir):
 	var tween = create_tween()
-	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 2.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	await tween.finished
 	moving = false

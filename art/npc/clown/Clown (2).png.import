@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50n0bniorblr"
-path="res://.godot/imported/exitDoor.png-2714e32f4909d10956461a6832b3848f.ctex"
+uid="uid://c4kijwykk1sgf"
+path="res://.godot/imported/Clown (2).png-d1156cad43239bf53796b2e877101251.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/exit/exitDoor.png"
-dest_files=["res://.godot/imported/exitDoor.png-2714e32f4909d10956461a6832b3848f.ctex"]
+source_file="res://art/npc/clown/Clown (2).png"
+dest_files=["res://.godot/imported/Clown (2).png-d1156cad43239bf53796b2e877101251.ctex"]
 
 [params]
 

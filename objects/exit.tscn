@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8mseffkqj6pe"]
 
 [ext_resource type="Script" path="res://objects/Exit.gd" id="1_5vyol"]
-[ext_resource type="Texture2D" uid="uid://dj1tscdqptt6k" path="res://art/objects/exit/exitDoor.png" id="2_smjwm"]
+[ext_resource type="Texture2D" uid="uid://b50n0bniorblr" path="res://art/objects/exit/exitDoor.png" id="2_smjwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
@@ -12,7 +12,6 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 0.249998)
-scale = Vector2(1, 0.664063)
 texture = ExtResource("2_smjwm")
 offset = Vector2(32, 32)
 

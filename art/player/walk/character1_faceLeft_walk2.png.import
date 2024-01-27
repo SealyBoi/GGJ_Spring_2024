@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50n0bniorblr"
-path="res://.godot/imported/exitDoor.png-2714e32f4909d10956461a6832b3848f.ctex"
+uid="uid://bng8xqtemxk2s"
+path="res://.godot/imported/character1_faceLeft_walk2.png-0bace3d0fd09f104687906e23a223992.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/exit/exitDoor.png"
-dest_files=["res://.godot/imported/exitDoor.png-2714e32f4909d10956461a6832b3848f.ctex"]
+source_file="res://art/player/walk/character1_faceLeft_walk2.png"
+dest_files=["res://.godot/imported/character1_faceLeft_walk2.png-0bace3d0fd09f104687906e23a223992.ctex"]
 
 [params]
 

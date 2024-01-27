@@ -192,6 +192,7 @@ position = Vector2(-384, 0)
 [node name="InsideWalls" type="Node2D" parent="Environment/Walls"]
 
 [node name="Entrance" parent="Environment/Walls" instance=ExtResource("7_m0yd5")]
+position = Vector2(-384, -64)
 
 [node name="Pushables" type="Node2D" parent="Environment"]
 
@@ -205,7 +206,7 @@ position = Vector2(-384, 0)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("10_236ba")]
 position = Vector2(320, -64)
-levelName = "test_levels/test_level_1"
+levelName = "cutscenes/cutscene_1"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

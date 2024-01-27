@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50n0bniorblr"
-path="res://.godot/imported/exitDoor.png-2714e32f4909d10956461a6832b3848f.ctex"
+uid="uid://dw3whf1c251lh"
+path="res://.godot/imported/Chainsaw_1.png-5fccba0f9de1e033f614fafae49ae5ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/objects/exit/exitDoor.png"
-dest_files=["res://.godot/imported/exitDoor.png-2714e32f4909d10956461a6832b3848f.ctex"]
+source_file="res://art/npc/chainsaw/Chainsaw_1.png"
+dest_files=["res://.godot/imported/Chainsaw_1.png-5fccba0f9de1e033f614fafae49ae5ad.ctex"]
 
 [params]
 
