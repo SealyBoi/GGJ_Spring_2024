@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var gatePaths: Array[NodePath] = []
+@onready var audio = $AudioStreamPlayer2D
 var gates: Array
 
 func _ready():
@@ -27,5 +28,6 @@ func _on_area_2d_body_exited(_body):
 	call_deferred("_toggle_gate")
 
 func _toggle_gate():
+	audio.play()
 	for gate in gates:
 		gate.toggle_gate()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cii2aipbuxwjh"]
+[gd_scene load_steps=4 format=3 uid="uid://cii2aipbuxwjh"]
 
 [ext_resource type="Texture2D" uid="uid://luky3kllgxno" path="res://art/objects/exit/exitDoor3.png" id="1_f8siv"]
+[ext_resource type="AudioStream" uid="uid://b1vx63pod85cr" path="res://sound/objects/enter.mp3" id="2_qy4hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
@@ -16,3 +17,8 @@ offset = Vector2(32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_1r3bo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qy4hk")
+autoplay = true
+bus = &"SFX"

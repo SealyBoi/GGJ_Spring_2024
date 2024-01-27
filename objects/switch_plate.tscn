@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://4gs28m036j6l"]
+[gd_scene load_steps=5 format=3 uid="uid://4gs28m036j6l"]
 
 [ext_resource type="Script" path="res://objects/SwitchPlate.gd" id="1_rh7a5"]
 [ext_resource type="Texture2D" uid="uid://ca3b4la86cru1" path="res://art/objects/plates/Plate1_Rusted.png" id="2_jh536"]
+[ext_resource type="AudioStream" uid="uid://buabt5as487u7" path="res://sound/objects/switchplate.mp3" id="3_8023a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
 size = Vector2(60, 60)
@@ -22,6 +23,10 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_1r3bo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8023a")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

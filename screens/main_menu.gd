@@ -22,3 +22,6 @@ func _on_back_pressed():
 func _on_settings_pressed():
 	$Main.visible = false
 	$Settings.visible = true
+
+func _on_quit_pressed():
+	get_tree().quit()

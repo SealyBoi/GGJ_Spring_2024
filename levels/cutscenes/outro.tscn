@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://4sypdjlf71g2"]
+[gd_scene load_steps=18 format=3 uid="uid://4sypdjlf71g2"]
 
+[ext_resource type="Script" path="res://levels/cutscenes/outro.gd" id="1_llmwo"]
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="2_2y33r"]
 [ext_resource type="Texture2D" uid="uid://ch1rf1ke40l01" path="res://art/tiles/woodFloor2.png" id="3_hriuf"]
 [ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="4_dfej2"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://objects/entrance.tscn" id="7_rs0yr"]
 [ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="8_nknfe"]
 [ext_resource type="AudioStream" uid="uid://dkqqh5e24hksf" path="res://sound/other/outro.mp3" id="8_ygdkt"]
+[ext_resource type="PackedScene" uid="uid://cnv8tr68hpy8u" path="res://objects/speaker.tscn" id="9_2qdls"]
 [ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="10_flwt7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvv3a"]
@@ -44,6 +46,7 @@ fill_to = Vector2(0.9, 0.1)
 metadata/_snap_enabled = true
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_llmwo")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qvppb")
@@ -176,12 +179,14 @@ position = Vector2(-384, -64)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("8_nknfe")]
 position = Vector2(320, -64)
-levelName = "test_levels/test_level_0"
+levelName = "menu"
 
 [node name="SpeakerAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ygdkt")
 volume_db = 10.0
 autoplay = true
+
+[node name="Speaker" parent="." instance=ExtResource("9_2qdls")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

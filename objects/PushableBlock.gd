@@ -4,6 +4,9 @@ extends RigidBody2D
 @onready var ray = $RayCast2D
 @onready var sprite = $Sprite2D
 @onready var collision_shape = $CollisionShape2D
+@onready var audio = $AudioStreamPlayer2D
+@onready var push = preload("res://sound/objects/push.mp3")
+@onready var hole = preload("res://sound/objects/hole.mp3")
 
 var tile_size = 64
 var inputs = {"right": Vector2.RIGHT,
@@ -19,18 +22,22 @@ func move(dir):
 	ray.force_raycast_update()
 	if not ray.is_colliding():
 		transition(dir)
+		play_push()
 		return true
 	var collider = ray.get_collider()
 	if collider.is_in_group("pushable"):
 		if collider.can_move(dir):
 			transition(dir)
+			play_push()
 			return true
 	elif collider.is_in_group("plate"):
 		transition(dir)
+		play_push()
 		return true
 	elif collider.is_in_group("hole"):
 		# delete hole and replace hole with passable tile
 		transition(dir)
+		play_fall()
 		collider.queue_free()
 		sprite.texture = sunken_box
 		collision_shape.disabled = true
@@ -44,6 +51,14 @@ func transition(dir):
 	moving = true
 	await tween.finished
 	moving = false
+
+func play_push():
+	audio.stream = push
+	audio.play()
+
+func play_fall():
+	audio.stream = hole
+	audio.play()
 
 func can_move(dir):
 	return move(dir)

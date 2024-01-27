@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnv8tr68hpy8u"]
+
+[ext_resource type="Texture2D" uid="uid://brnhvdd5vrxuk" path="res://art/speaker/Switch_Rusted.png" id="1_0trn1"]
+[ext_resource type="Texture2D" uid="uid://iri1cedotrcy" path="res://art/speaker/wordBubble1.png" id="2_yc535"]
+[ext_resource type="Texture2D" uid="uid://byho5o4uhq22g" path="res://art/speaker/wordBubble2.png" id="3_ghygv"]
+[ext_resource type="Texture2D" uid="uid://c6piipjq5kx4s" path="res://art/speaker/wordBubble3.png" id="4_63qcb"]
+[ext_resource type="Texture2D" uid="uid://bfb3pxuxymowr" path="res://art/speaker/wordBubble4.png" id="5_4jfij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi030"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yc535")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ghygv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_63qcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4jfij")
+}],
+"loop": true,
+"name": &"speaking",
+"speed": 5.0
+}]
+
+[node name="Speaker" type="Sprite2D"]
+position = Vector2(0, -256)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0trn1")
+offset = Vector2(64, 64)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fi030")
+animation = &"speaking"
+offset = Vector2(64, 0)

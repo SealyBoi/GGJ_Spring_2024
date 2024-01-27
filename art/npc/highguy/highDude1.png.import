@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iri1cedotrcy"
-path="res://.godot/imported/wordBubble1.png-d37ef05caef6d0438e8cda70e6dd7b34.ctex"
+uid="uid://ynt03c5fsqd4"
+path="res://.godot/imported/highDude1.png-7e93951fdc4bf99c362a3842ae5cba7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/npc/wordBubble1.png"
-dest_files=["res://.godot/imported/wordBubble1.png-d37ef05caef6d0438e8cda70e6dd7b34.ctex"]
+source_file="res://art/npc/highguy/highDude1.png"
+dest_files=["res://.godot/imported/highDude1.png-7e93951fdc4bf99c362a3842ae5cba7e.ctex"]
 
 [params]
 

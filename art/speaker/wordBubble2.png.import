@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byho5o4uhq22g"
-path="res://.godot/imported/wordBubble2.png-9f3c0adbe5aaabe11ec68e2e866fde2b.ctex"
+path="res://.godot/imported/wordBubble2.png-6354962b342ec9f0ffd8f2613eec0a6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/npc/wordBubble2.png"
-dest_files=["res://.godot/imported/wordBubble2.png-9f3c0adbe5aaabe11ec68e2e866fde2b.ctex"]
+source_file="res://art/speaker/wordBubble2.png"
+dest_files=["res://.godot/imported/wordBubble2.png-6354962b342ec9f0ffd8f2613eec0a6f.ctex"]
 
 [params]
 

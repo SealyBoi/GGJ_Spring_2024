@@ -1,14 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://dwjt8vt60qgie"]
+[gd_scene load_steps=20 format=3 uid="uid://dwjt8vt60qgie"]
 
+[ext_resource type="Script" path="res://levels/cutscenes/cutscene_4.gd" id="1_nv651"]
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="2_m661u"]
 [ext_resource type="Texture2D" uid="uid://ch1rf1ke40l01" path="res://art/tiles/woodFloor2.png" id="3_qf340"]
 [ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="4_kgm0s"]
 [ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="5_pp1pm"]
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="6_jpxa3"]
 [ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://objects/entrance.tscn" id="7_rarjp"]
+[ext_resource type="Texture2D" uid="uid://dra6od21ru2u1" path="res://art/npc/highguy/highDude01.png" id="8_5acxw"]
 [ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="8_smxe0"]
-[ext_resource type="Texture2D" uid="uid://dw3whf1c251lh" path="res://art/npc/chainsaw/Chainsaw_1.png" id="9_u73la"]
-[ext_resource type="Texture2D" uid="uid://coft3ep3s7t78" path="res://art/npc/chainsaw/Chainsaw.png" id="10_imhpt"]
+[ext_resource type="Texture2D" uid="uid://ynt03c5fsqd4" path="res://art/npc/highguy/highDude1.png" id="9_aploe"]
 [ext_resource type="AudioStream" uid="uid://dah7wpyaaxqt" path="res://sound/high_guy/high_guy1.mp3" id="10_ll2uq"]
 [ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="12_tha5k"]
 
@@ -37,19 +38,14 @@ sources/2 = SubResource("TileSetAtlasSource_5itqb")
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_u73la")
-}],
-"loop": true,
-"name": &"crank",
-"speed": 5.0
+"texture": ExtResource("8_5acxw")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_imhpt")
+"texture": ExtResource("9_aploe")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 0.45
 }]
 
 [sub_resource type="Gradient" id="Gradient_dcqp7"]
@@ -65,6 +61,7 @@ fill_to = Vector2(0.9, 0.1)
 metadata/_snap_enabled = true
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_nv651")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qvppb")
@@ -191,6 +188,7 @@ levelName = "cutscenes/outro"
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_18axq")
 animation = &"idle"
+frame_progress = 0.975706
 offset = Vector2(32, 32)
 
 [node name="GuyAudio" type="AudioStreamPlayer2D" parent="."]

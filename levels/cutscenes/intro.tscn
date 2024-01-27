@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cehoctjxdec1c"]
+[gd_scene load_steps=17 format=3 uid="uid://cehoctjxdec1c"]
 
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="1_5uc22"]
 [ext_resource type="Script" path="res://levels/cutscenes/intro.gd" id="1_uac4k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="5_c1uxx"]
 [ext_resource type="PackedScene" uid="uid://cii2aipbuxwjh" path="res://objects/entrance.tscn" id="6_ahed0"]
 [ext_resource type="PackedScene" uid="uid://b8mseffkqj6pe" path="res://objects/exit.tscn" id="7_an2os"]
+[ext_resource type="PackedScene" uid="uid://cnv8tr68hpy8u" path="res://objects/speaker.tscn" id="10_akhq1"]
 [ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="11_xo141"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvv3a"]
@@ -181,6 +182,8 @@ levelName = "cutscenes/cutscene_0"
 
 [node name="SpeakerAudio" type="AudioStreamPlayer2D" parent="."]
 volume_db = 10.0
+
+[node name="Speaker" parent="." instance=ExtResource("10_akhq1")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

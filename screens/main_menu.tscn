@@ -382,6 +382,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
+[node name="Quit" type="Button" parent="Main/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
 [node name="Credits" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -514,5 +519,6 @@ offset = Vector2(0, -32)
 [connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Credits/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Settings/VBoxContainer/Back" to="." method="_on_back_pressed"]

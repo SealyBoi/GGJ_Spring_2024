@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1k44l3afx6f5"]
+[gd_scene load_steps=22 format=3 uid="uid://c1k44l3afx6f5"]
 
 [ext_resource type="Script" path="res://levels/cutscenes/cutscene_1.gd" id="1_knrei"]
 [ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="2_qe0mm"]
@@ -31,6 +31,9 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_wvv3a")
 sources/1 = SubResource("TileSetAtlasSource_rjf7a")
 sources/2 = SubResource("TileSetAtlasSource_5itqb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ddoy"]
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjkgd"]
 size = Vector2(64, 192)
@@ -211,6 +214,12 @@ levelName = "cutscenes/cutscene_2"
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="SceneTransitionRect" parent="HUD" instance=ExtResource("9_3umex")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-32, -96)
+shape = SubResource("RectangleShape2D_2ddoy")
 
 [node name="Closet" type="Sprite2D" parent="."]
 position = Vector2(-64, -128)
