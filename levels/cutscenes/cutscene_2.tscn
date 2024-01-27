@@ -180,7 +180,7 @@ position = Vector2(-384, -64)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("8_ivxll")]
 position = Vector2(320, -64)
-levelName = "cutscenes/cutscene_3"
+levelName = "level_4"
 
 [node name="Clown" type="AnimatedSprite2D" parent="."]
 position = Vector2(-64, -128)

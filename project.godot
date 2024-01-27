@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="GGJ_Spring_2024"
+config/name="Jenkin's Haunted House"
+config/description="You decide to have a night of fun, and book a scary escape room experience at Jenkin's Haunted Mansion. Little did you know, it would be the opposite of scary. At least there's puzzles though, right?"
+run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://art/icon.svg"
+boot_splash/image="res://art/Sus_Amongus_Seal.png"
+config/icon="res://art/Sus_Amongus_Seal.png"
 
 [display]
 
@@ -45,6 +48,10 @@ reset={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+rendering/description="You decide to have a night of fun, and book a scary escape room experience at Jenkin's Haunted Mansion. Little did you know, it would be the opposite of scary. At least there's puzzles though, right?"
 
 [rendering]
 

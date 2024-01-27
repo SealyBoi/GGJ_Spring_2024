@@ -1,0 +1,412 @@
+[gd_scene load_steps=25 format=3 uid="uid://b5xkmwx870e0k"]
+
+[ext_resource type="PackedScene" uid="uid://fn41ufxh3jhm" path="res://levels/music.tscn" id="1_4vudo"]
+[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="2_0sxve"]
+[ext_resource type="Texture2D" uid="uid://ch1rf1ke40l01" path="res://art/tiles/woodFloor2.png" id="3_7vq0p"]
+[ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="4_sxbsu"]
+[ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="5_jkpcl"]
+[ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="6_31wce"]
+[ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="7_uwoqj"]
+[ext_resource type="PackedScene" uid="uid://b105csdkgkkuu" path="res://objects/hole.tscn" id="8_w74m6"]
+[ext_resource type="PackedScene" uid="uid://4gs28m036j6l" path="res://objects/switch_plate.tscn" id="9_2qpss"]
+[ext_resource type="PackedScene" uid="uid://87jekfqf6er8" path="res://objects/weight_plate.tscn" id="10_x8hg7"]
+[ext_resource type="PackedScene" uid="uid://31cr31plvajq" path="res://objects/gate.tscn" id="11_5hl6y"]
+[ext_resource type="Script" path="res://objects/Exit.gd" id="11_22se2"]
+[ext_resource type="AudioStream" uid="uid://b6kgec4x8xu3p" path="res://sound/objects/exit.mp3" id="13_2k7kf"]
+[ext_resource type="Texture2D" uid="uid://bs232q6eltfp5" path="res://art/objects/exit/exitDoor1.png" id="14_sc5id"]
+[ext_resource type="AudioStream" uid="uid://b1vx63pod85cr" path="res://sound/objects/enter.mp3" id="15_8s1x2"]
+[ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="16_5sb63"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvv3a"]
+texture = ExtResource("2_0sxve")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjf7a"]
+texture = ExtResource("3_7vq0p")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5itqb"]
+texture = ExtResource("4_sxbsu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qvppb"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wvv3a")
+sources/1 = SubResource("TileSetAtlasSource_rjf7a")
+sources/2 = SubResource("TileSetAtlasSource_5itqb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg6df"]
+size = Vector2(60, 60)
+
+[sub_resource type="Gradient" id="Gradient_dcqp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fadbh"]
+gradient = SubResource("Gradient_dcqp7")
+width = 260
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+metadata/_snap_enabled = true
+
+[node name="Main" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_4vudo")]
+volume_db = -10.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_qvppb")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131070, 1, 0, -131071, 1, 0, -131072, 1, 0, -65537, 0, 0, -65538, 0, 0, -65539, 1, 0, -3, 0, 0, -2, 0, 0, -1, 1, 0, -65536, 0, 0, -65535, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 1, 0, 0, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 65537, 0, 0, 65536, 0, 0, 1, 1, 0, -65534, 0, 0, 2, 0, 0, 65538, 1, 0, 131074, 1, 0, -131075, 0, 0, -131074, 0, 0, -131073, 1, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -131076, 2, 0, -196605, 2, 0, -196604, 2, 0, -131077, 2, 0, -65541, 0, 0, -5, 0, 0, 65531, 0, 0, 131067, 2, 0, 196603, 1, 0, 196604, 0, 0, 131068, 0, 0, 65532, 0, 0, -4, 1, 0, -65540, 1, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 1, 0, 131076, 2, 0, 65540, 0, 0, 4, 2, 0, -65532, 2, 0, -131068, 2, 0, 196612, 1, 0, 262148, 1, 0, 262147, 2, 0, 196611, 1, 0, 196610, 0, 0, 196609, 0, 0, 196608, 1, 0, 262143, 1, 0, 262142, 0, 0, 262141, 0, 0, 262140, 1, 0, 262139, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 1, 0, 327678, 2, 0, 327679, 2, 0, 262144, 1, 0, 262145, 0, 0, 262146, 0, 0, -262140, 2, 0, -327676, 2, 0, -327677, 2, 0, -327678, 1, 0, -327679, 1, 0, -327680, 1, 0, -262145, 1, 0, -262146, 2, 0, -262147, 0, 0, -262148, 0, 0, -262149, 2, 0, -196613, 2, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 2, 0, -262142, 1, 0, -262141, 1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+
+[node name="Player" parent="." instance=ExtResource("5_jkpcl")]
+position = Vector2(0, 256)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="BoundaryWalls" type="Node2D" parent="Environment/Walls"]
+
+[node name="Wall" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, -320)
+
+[node name="Wall2" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, -256)
+
+[node name="Wall3" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, -192)
+
+[node name="Wall4" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, -128)
+
+[node name="Wall5" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, -64)
+
+[node name="Wall6" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, 0)
+
+[node name="Wall7" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, 64)
+
+[node name="Wall8" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, 128)
+
+[node name="Wall9" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, 192)
+
+[node name="Wall10" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, 256)
+
+[node name="Wall11" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, 320)
+
+[node name="Wall12" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(256, 320)
+
+[node name="Wall13" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(192, 320)
+
+[node name="Wall14" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(128, 320)
+
+[node name="Wall15" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, 320)
+
+[node name="Wall17" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-64, 320)
+
+[node name="Wall18" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-128, 320)
+
+[node name="Wall19" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, 320)
+
+[node name="Wall20" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-256, 320)
+
+[node name="Wall21" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-320, 320)
+
+[node name="Wall22" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, 320)
+
+[node name="Wall23" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, 256)
+
+[node name="Wall24" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, 192)
+
+[node name="Wall25" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, 128)
+
+[node name="Wall26" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, 64)
+
+[node name="Wall27" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, 0)
+
+[node name="Wall28" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, -64)
+
+[node name="Wall29" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, -128)
+
+[node name="Wall30" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, -192)
+
+[node name="Wall31" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, -256)
+
+[node name="Wall32" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, -320)
+
+[node name="Wall33" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-384, -384)
+
+[node name="Wall34" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-320, -384)
+
+[node name="Wall35" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-256, -384)
+
+[node name="Wall36" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, -384)
+
+[node name="Wall38" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-64, -384)
+
+[node name="Wall39" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(0, -384)
+
+[node name="Wall40" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, -384)
+
+[node name="Wall41" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(128, -384)
+
+[node name="Wall42" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(192, -384)
+
+[node name="Wall43" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(256, -384)
+
+[node name="Wall44" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_31wce")]
+position = Vector2(320, -384)
+
+[node name="InsideWalls" type="Node2D" parent="Environment/Walls"]
+
+[node name="Wall" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, -320)
+
+[node name="Wall2" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, -256)
+
+[node name="Wall3" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, -192)
+
+[node name="Wall4" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, -128)
+
+[node name="Wall5" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-256, -128)
+
+[node name="Wall6" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-320, 64)
+
+[node name="Wall7" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, 64)
+
+[node name="Wall8" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, 128)
+
+[node name="Wall9" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, 192)
+
+[node name="Wall10" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-192, 256)
+
+[node name="Wall11" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-64, 64)
+
+[node name="Wall13" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+
+[node name="Wall14" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, 0)
+
+[node name="Wall15" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(128, 0)
+
+[node name="Wall16" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(192, 0)
+
+[node name="Wall17" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(256, 0)
+
+[node name="Wall18" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, 128)
+
+[node name="Wall19" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, 256)
+
+[node name="Wall20" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(256, -192)
+
+[node name="Wall21" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(192, -192)
+
+[node name="Wall22" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, -192)
+
+[node name="Wall23" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, -256)
+
+[node name="Wall24" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(64, -320)
+
+[node name="Wall25" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_31wce")]
+position = Vector2(-64, -320)
+
+[node name="Pushables" type="Node2D" parent="Environment"]
+
+[node name="PushableBlock" parent="Environment/Pushables" instance=ExtResource("7_uwoqj")]
+position = Vector2(-320, -256)
+
+[node name="PushableBlock2" parent="Environment/Pushables" instance=ExtResource("7_uwoqj")]
+position = Vector2(192, -256)
+
+[node name="PushableBlock3" parent="Environment/Pushables" instance=ExtResource("7_uwoqj")]
+position = Vector2(192, 128)
+
+[node name="PushableBlock4" parent="Environment/Pushables" instance=ExtResource("7_uwoqj")]
+position = Vector2(192, 192)
+
+[node name="Holes" type="Node2D" parent="Environment"]
+
+[node name="Hole" parent="Environment/Holes" instance=ExtResource("8_w74m6")]
+position = Vector2(-256, 128)
+
+[node name="Hole2" parent="Environment/Holes" instance=ExtResource("8_w74m6")]
+position = Vector2(128, -128)
+
+[node name="Plates" type="Node2D" parent="Environment"]
+
+[node name="1" parent="Environment/Plates" instance=ExtResource("9_2qpss")]
+position = Vector2(256, -64)
+gatePaths = Array[NodePath]([NodePath("../../Gates/1a"), NodePath("../../Gates/1b")])
+start_open = Array[bool]([false, false])
+
+[node name="2" parent="Environment/Plates" instance=ExtResource("9_2qpss")]
+position = Vector2(-256, 256)
+gatePaths = Array[NodePath]([NodePath("../../Gates/2")])
+start_open = Array[bool]([false])
+
+[node name="3" parent="Environment/Plates" instance=ExtResource("9_2qpss")]
+position = Vector2(128, 64)
+gatePaths = Array[NodePath]([NodePath("../../Gates/3a"), NodePath("../../Gates/3b")])
+start_open = Array[bool]([true, true])
+
+[node name="4" parent="Environment/Plates" instance=ExtResource("10_x8hg7")]
+position = Vector2(256, 256)
+gatePaths = Array[NodePath]([NodePath("../../Gates/4")])
+start_open = Array[bool]([false])
+
+[node name="5" parent="Environment/Plates" instance=ExtResource("10_x8hg7")]
+position = Vector2(-320, -320)
+gatePaths = Array[NodePath]([NodePath("../../Gates/5")])
+start_open = Array[bool]([false])
+
+[node name="Gates" type="Node2D" parent="Environment"]
+
+[node name="1a" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(128, -192)
+
+[node name="1b" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(-320, -128)
+
+[node name="2" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(-128, -320)
+
+[node name="3a" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(64, 64)
+
+[node name="3b" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(128, 128)
+
+[node name="4" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(64, 192)
+
+[node name="5" parent="Environment/Gates" instance=ExtResource("11_5hl6y")]
+position = Vector2(-256, 64)
+
+[node name="Exit" type="Node2D" parent="Environment"]
+
+[node name="Exit" type="StaticBody2D" parent="Environment/Exit"]
+position = Vector2(-128, -384)
+script = ExtResource("11_22se2")
+levelName = "cutscenes/cutscene_2"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Exit/Exit"]
+position = Vector2(0, 0.249998)
+texture = ExtResource("14_sc5id")
+offset = Vector2(32, 32)
+
+[node name="Area2D" type="Area2D" parent="Environment/Exit/Exit"]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Exit/Exit/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_1r3bo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment/Exit/Exit"]
+stream = ExtResource("13_2k7kf")
+bus = &"SFX"
+
+[node name="Entrance" type="StaticBody2D" parent="Environment/Exit"]
+position = Vector2(0, 320)
+collision_layer = 3
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Exit/Entrance"]
+texture = ExtResource("14_sc5id")
+offset = Vector2(32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Exit/Entrance"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_bg6df")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment/Exit/Entrance"]
+stream = ExtResource("15_8s1x2")
+autoplay = true
+bus = &"SFX"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="SceneTransitionRect" parent="HUD" instance=ExtResource("16_5sb63")]
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0, 0, 0, 1)
+
+[node name="Lights" type="Node2D" parent="Lighting"]
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lighting/Lights"]
+position = Vector2(-1.81934e-05, 163.84)
+scale = Vector2(3.93846, 5.12)
+energy = 1.5
+texture = SubResource("GradientTexture2D_fadbh")
+offset = Vector2(0, -32)
+
+[connection signal="area_entered" from="Environment/Exit/Exit/Area2D" to="Environment/Exit/Exit" method="_on_area_2d_area_entered"]

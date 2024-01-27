@@ -224,7 +224,7 @@ position = Vector2(-384, -64)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("8_mgfji")]
 position = Vector2(320, -64)
-levelName = "cutscenes/cutscene_4"
+levelName = "level_5"
 
 [node name="Chainsaw" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)

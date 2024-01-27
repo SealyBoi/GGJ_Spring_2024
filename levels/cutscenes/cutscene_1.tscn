@@ -209,7 +209,7 @@ position = Vector2(-384, -64)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("8_67iai")]
 position = Vector2(320, -64)
-levelName = "cutscenes/cutscene_2"
+levelName = "level_3"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

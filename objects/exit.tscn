@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8mseffkqj6pe"]
 
 [ext_resource type="Script" path="res://objects/Exit.gd" id="1_5vyol"]
-[ext_resource type="Texture2D" uid="uid://bymtkgade0mey" path="res://art/objects/exit/exitDoor4.png" id="2_705a3"]
+[ext_resource type="Texture2D" uid="uid://bs232q6eltfp5" path="res://art/objects/exit/exitDoor1.png" id="2_cpqvs"]
 [ext_resource type="AudioStream" uid="uid://b6kgec4x8xu3p" path="res://sound/objects/exit.mp3" id="3_el3nw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
@@ -13,7 +13,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 0.249998)
-texture = ExtResource("2_705a3")
+texture = ExtResource("2_cpqvs")
 offset = Vector2(32, 32)
 
 [node name="Area2D" type="Area2D" parent="."]
