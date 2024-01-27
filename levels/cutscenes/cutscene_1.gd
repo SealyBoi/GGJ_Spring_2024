@@ -12,7 +12,7 @@ func _ready():
 	audio.stream = pre_scare
 	audio.play()
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(_area):
 	if not can_play:
 		return
 	
