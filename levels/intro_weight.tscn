@@ -1,0 +1,271 @@
+[gd_scene load_steps=24 format=3 uid="uid://c80sdmmsosdwi"]
+
+[ext_resource type="PackedScene" uid="uid://fn41ufxh3jhm" path="res://levels/music.tscn" id="1_hd8lg"]
+[ext_resource type="Texture2D" uid="uid://cundwu3y0f2xy" path="res://art/tiles/woodFloor.png" id="2_eijg8"]
+[ext_resource type="Texture2D" uid="uid://ch1rf1ke40l01" path="res://art/tiles/woodFloor2.png" id="3_d8yft"]
+[ext_resource type="Texture2D" uid="uid://datqdw2aa1x5y" path="res://art/tiles/woodFloor3.png" id="4_63cdk"]
+[ext_resource type="PackedScene" uid="uid://cvoqpphfwhe1j" path="res://player/player.tscn" id="5_hbce4"]
+[ext_resource type="PackedScene" uid="uid://nisv73ya1rpt" path="res://objects/wall.tscn" id="6_4d8rq"]
+[ext_resource type="Script" path="res://objects/Exit.gd" id="7_gbe46"]
+[ext_resource type="PackedScene" uid="uid://d0i6oufviinmf" path="res://objects/pushable_block.tscn" id="7_od0os"]
+[ext_resource type="Texture2D" uid="uid://bs232q6eltfp5" path="res://art/objects/exit/exitDoor1.png" id="8_3vo1q"]
+[ext_resource type="PackedScene" uid="uid://b105csdkgkkuu" path="res://objects/hole.tscn" id="8_c0g2r"]
+[ext_resource type="AudioStream" uid="uid://b6kgec4x8xu3p" path="res://sound/objects/exit.mp3" id="9_ncjj1"]
+[ext_resource type="PackedScene" uid="uid://87jekfqf6er8" path="res://objects/weight_plate.tscn" id="9_nkmrd"]
+[ext_resource type="AudioStream" uid="uid://b1vx63pod85cr" path="res://sound/objects/enter.mp3" id="10_1oh4n"]
+[ext_resource type="PackedScene" uid="uid://31cr31plvajq" path="res://objects/gate.tscn" id="10_ggsl4"]
+[ext_resource type="PackedScene" uid="uid://csejredakcle5" path="res://screens/scene_transition_rect.tscn" id="11_fa7ag"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvv3a"]
+texture = ExtResource("2_eijg8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjf7a"]
+texture = ExtResource("3_d8yft")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5itqb"]
+texture = ExtResource("4_63cdk")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qvppb"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wvv3a")
+sources/1 = SubResource("TileSetAtlasSource_rjf7a")
+sources/2 = SubResource("TileSetAtlasSource_5itqb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3bo"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg6df"]
+size = Vector2(60, 60)
+
+[sub_resource type="Gradient" id="Gradient_dcqp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fadbh"]
+gradient = SubResource("Gradient_dcqp7")
+width = 260
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.1)
+metadata/_snap_enabled = true
+
+[node name="Main" type="Node2D"]
+
+[node name="Music" parent="." instance=ExtResource("1_hd8lg")]
+volume_db = -10.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_qvppb")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131071, 0, 0, -131072, 1, 0, -65537, 1, 0, -65538, 2, 0, -65539, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, 65535, 1, 0, 65534, 2, 0, 65533, 2, 0, 0, 1, 0, 1, 1, 0, -196607, 0, 0, -196608, 2, 0, -131073, 0, 0, -131074, 1, 0, -131075, 0, 0, 131069, 1, 0, 131070, 1, 0, 131071, 0, 0, 65536, 2, 0, 65537, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-32, -32)
+zoom = Vector2(1.25, 1.25)
+
+[node name="Player" parent="." instance=ExtResource("5_hbce4")]
+position = Vector2(-128, 64)
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="BoundaryWalls" type="Node2D" parent="Environment/Walls"]
+
+[node name="Wall" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, -256)
+
+[node name="Wall2" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-192, -256)
+
+[node name="Wall3" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-128, -256)
+
+[node name="Wall4" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(0, -256)
+
+[node name="Wall5" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(64, -256)
+
+[node name="Wall6" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, -256)
+
+[node name="Wall7" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, -192)
+
+[node name="Wall8" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, -128)
+
+[node name="Wall9" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, -64)
+
+[node name="Wall10" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, 0)
+
+[node name="Wall11" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, 64)
+
+[node name="Wall12" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(128, 128)
+
+[node name="Wall13" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(64, 128)
+
+[node name="Wall14" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(0, 128)
+
+[node name="Wall15" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-64, 128)
+
+[node name="Wall16" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-192, 128)
+
+[node name="Wall17" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, 128)
+
+[node name="Wall18" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, 64)
+
+[node name="Wall19" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, 0)
+
+[node name="Wall20" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, -64)
+
+[node name="Wall21" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, -128)
+
+[node name="Wall22" parent="Environment/Walls/BoundaryWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-256, -192)
+
+[node name="InsideWalls" type="Node2D" parent="Environment/Walls"]
+
+[node name="Wall" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-128, -192)
+
+[node name="Wall2" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-64, -128)
+
+[node name="Wall3" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(0, -128)
+
+[node name="Wall4" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-64, -64)
+
+[node name="Wall5" parent="Environment/Walls/InsideWalls" instance=ExtResource("6_4d8rq")]
+position = Vector2(-64, 64)
+
+[node name="Pushables" type="Node2D" parent="Environment"]
+
+[node name="PushableBlock" parent="Environment/Pushables" instance=ExtResource("7_od0os")]
+position = Vector2(-192, 0)
+
+[node name="PushableBlock2" parent="Environment/Pushables" instance=ExtResource("7_od0os")]
+position = Vector2(-128, -64)
+
+[node name="PushableBlock3" parent="Environment/Pushables" instance=ExtResource("7_od0os")]
+position = Vector2(0, -192)
+
+[node name="Holes" type="Node2D" parent="Environment"]
+
+[node name="Hole" parent="Environment/Holes" instance=ExtResource("8_c0g2r")]
+position = Vector2(-64, -192)
+
+[node name="Plates" type="Node2D" parent="Environment"]
+
+[node name="1" parent="Environment/Plates" instance=ExtResource("9_nkmrd")]
+position = Vector2(64, 64)
+gatePaths = Array[NodePath]([NodePath("../../Gates/1")])
+start_open = Array[bool]([false])
+
+[node name="2" parent="Environment/Plates" instance=ExtResource("9_nkmrd")]
+position = Vector2(-192, -192)
+gatePaths = Array[NodePath]([NodePath("../../Gates/2")])
+start_open = Array[bool]([false])
+
+[node name="Gates" type="Node2D" parent="Environment"]
+
+[node name="2" parent="Environment/Gates" instance=ExtResource("10_ggsl4")]
+position = Vector2(-64, 0)
+
+[node name="1" parent="Environment/Gates" instance=ExtResource("10_ggsl4")]
+position = Vector2(64, -128)
+
+[node name="Exit" type="Node2D" parent="Environment"]
+
+[node name="Exit" type="StaticBody2D" parent="Environment/Exit"]
+position = Vector2(-64, -256)
+script = ExtResource("7_gbe46")
+levelName = "level_1"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Exit/Exit"]
+position = Vector2(0, 0.249998)
+texture = ExtResource("8_3vo1q")
+offset = Vector2(32, 32)
+
+[node name="Area2D" type="Area2D" parent="Environment/Exit/Exit"]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Exit/Exit/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_1r3bo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment/Exit/Exit"]
+stream = ExtResource("9_ncjj1")
+bus = &"SFX"
+
+[node name="Entrance" type="StaticBody2D" parent="Environment/Exit"]
+position = Vector2(-128, 128)
+collision_layer = 3
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Exit/Entrance"]
+texture = ExtResource("8_3vo1q")
+offset = Vector2(32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Exit/Entrance"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_bg6df")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment/Exit/Entrance"]
+stream = ExtResource("10_1oh4n")
+autoplay = true
+bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+text = "Push crates
+onto weight
+plates to
+activate them"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="SceneTransitionRect" parent="HUD" instance=ExtResource("11_fa7ag")]
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0, 0, 0, 1)
+
+[node name="Lights" type="Node2D" parent="Lighting"]
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lighting/Lights"]
+position = Vector2(-32.0003, 80.64)
+scale = Vector2(2.70769, 3.52)
+energy = 1.5
+texture = SubResource("GradientTexture2D_fadbh")
+offset = Vector2(0, -32)
+
+[connection signal="area_entered" from="Environment/Exit/Exit/Area2D" to="Environment/Exit/Exit" method="_on_area_2d_area_entered"]

@@ -550,15 +550,13 @@ position = Vector2(64, -256)
 
 [node name="Exit" parent="Environment/Exit" instance=ExtResource("6_7x3t7")]
 position = Vector2(320, 320)
-levelName = "cutscenes/outro"
+levelName = "cutscenes/cutscene_4"
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="SceneTransitionRect" parent="HUD" instance=ExtResource("7_usqdk")]
 
 [node name="Lighting" type="Node2D" parent="."]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
 color = Color(0, 0, 0, 1)

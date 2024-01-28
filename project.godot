@@ -20,6 +20,8 @@ config/icon="res://art/Sus_Amongus_Seal.png"
 [display]
 
 window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [input]
 

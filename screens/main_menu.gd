@@ -1,6 +1,6 @@
 extends Control
 
-@onready var first_level: PackedScene = preload("res://levels/level_1.tscn")
+@onready var first_level: PackedScene = preload("res://levels/cutscenes/intro.tscn")
 @onready var scene_trans = $HUD/SceneTransitionRect
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 

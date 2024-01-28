@@ -322,6 +322,7 @@ position = Vector2(960, 256)
 [node name="WeightPlate" parent="Environment/Plates" instance=ExtResource("8_w6uk8")]
 position = Vector2(704, 64)
 gatePaths = Array[NodePath]([NodePath("../../Gates/Gate")])
+start_open = Array[bool]([false])
 
 [node name="Gates" type="Node2D" parent="Environment"]
 
