@@ -15,13 +15,14 @@ config/description="You decide to have a night of fun, and book a scary escape r
 run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://art/Sus_Amongus_Seal.png"
-config/icon="res://art/Sus_Amongus_Seal.png"
+config/icon="res://art/jenkinsLogo.png"
 
 [display]
 
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
+mouse_cursor/custom_image="res://art/cursor.png"
 
 [input]
 
